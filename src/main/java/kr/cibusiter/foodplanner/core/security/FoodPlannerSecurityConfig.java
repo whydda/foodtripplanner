@@ -56,14 +56,13 @@ public class FoodPlannerSecurityConfig extends WebSecurityConfigurerAdapter {
                 .exceptionHandling().authenticationEntryPoint(unauthorizedEntryPoint()).accessDeniedPage("/errors/error")
                 .and()
                 .authorizeRequests()
-                .antMatchers("/favicon.ico", "/css/**", "/js/**", "/img/**", "/login/**").permitAll()
-                .antMatchers("/public/**").permitAll()
+                .antMatchers("/favicon.ico", "/static/**", "/login/page").permitAll()
                 .antMatchers("/errors/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
-                .addFilterBefore(duplicationLoginCheckFilter(), UsernamePasswordAuthenticationFilter.class)
-                .addFilterBefore(ajaxRequestLoginFilter(), ExceptionTranslationFilter.class)
-                .formLogin().loginPage("/index")
+//                .addFilterBefore(duplicationLoginCheckFilter(), UsernamePasswordAuthenticationFilter.class)
+//                .addFilterBefore(ajaxRequestLoginFilter(), ExceptionTranslationFilter.class)
+                .formLogin().loginPage("/login/page")
                 .loginProcessingUrl("/login/prcess").permitAll()
                 .successHandler(loginSuccessHandler())
                 .failureHandler(loginFailureHandler())
@@ -81,8 +80,6 @@ public class FoodPlannerSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
         //.addFilterAfter(new CsrfHeaderFilter(), CsrfFilter.class)
 //        	.csrf().csrfTokenRepository(csrfTokenRepository())
-        ;
-        http
                 .sessionManagement()
                 .maximumSessions(1)
                 .maxSessionsPreventsLogin(false)
@@ -160,11 +157,11 @@ public class FoodPlannerSecurityConfig extends WebSecurityConfigurerAdapter {
         return sessionRegistry;
     }
 
-    @Bean
-    public DuplicationLoginCheckFilter duplicationLoginCheckFilter(){
-        DuplicationLoginCheckFilter duplicationLoginCheckFilter = new DuplicationLoginCheckFilter(sessionRegistry, secureUserDetailsService, "/login/auth");
-        return duplicationLoginCheckFilter;
-    }
+//    @Bean
+//    public DuplicationLoginCheckFilter duplicationLoginCheckFilter(){
+//        DuplicationLoginCheckFilter duplicationLoginCheckFilter = new DuplicationLoginCheckFilter(sessionRegistry, secureUserDetailsService, "/login/auth");
+//        return duplicationLoginCheckFilter;
+//    }
 
     @Bean
     public AjaxRequestLoginFilter ajaxRequestLoginFilter(){

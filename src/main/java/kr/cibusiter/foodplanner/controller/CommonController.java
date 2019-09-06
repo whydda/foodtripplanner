@@ -14,6 +14,6 @@ public class CommonController {
 
     @GetMapping(value = "/login/page")
     public String loginPage(){
-        return "index";
+        return "/index";
     }
 }
