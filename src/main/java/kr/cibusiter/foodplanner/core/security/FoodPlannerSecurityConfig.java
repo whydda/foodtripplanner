@@ -2,10 +2,8 @@ package kr.cibusiter.foodplanner.core.security;
 
 import kr.cibusiter.foodplanner.vo.SecureUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.annotation.Order;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -15,10 +13,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.session.SessionRegistryImpl;
 import org.springframework.security.web.AuthenticationEntryPoint;
-import org.springframework.security.web.access.ExceptionTranslationFilter;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.logout.SimpleUrlLogoutSuccessHandler;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 
@@ -56,8 +52,9 @@ public class FoodPlannerSecurityConfig extends WebSecurityConfigurerAdapter {
                 .exceptionHandling().authenticationEntryPoint(unauthorizedEntryPoint()).accessDeniedPage("/errors/error")
                 .and()
                 .authorizeRequests()
-                .antMatchers("/favicon.ico", "/static/**", "/login/page").permitAll()
+                .antMatchers("/favicon.ico", "/static/**").permitAll()
                 .antMatchers("/errors/**").permitAll()
+                .antMatchers("/tl/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
 //                .addFilterBefore(duplicationLoginCheckFilter(), UsernamePasswordAuthenticationFilter.class)
@@ -115,7 +112,7 @@ public class FoodPlannerSecurityConfig extends WebSecurityConfigurerAdapter {
      */
     @Override
     public void configure(WebSecurity http) throws Exception {
-        http.ignoring().antMatchers("/css/**", "/js/**", "/img/**", "/favicon.ico");
+        http.ignoring().antMatchers("/static/**", "/favicon.ico");
     }
 
     @Autowired

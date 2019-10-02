@@ -8,8 +8,6 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.annotation.MapperScan;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
@@ -29,8 +27,6 @@ import javax.sql.DataSource;
 @MapperScan(basePackages="kr.cibusiter.foodplanner.service.mapper")
 @EnableTransactionManagement
 public class DataSourceConfig {
-    private static final Logger LOGGER = LoggerFactory.getLogger(DataSourceConfig.class);
-
     @Autowired
     private DataSourceProperties properties;
 

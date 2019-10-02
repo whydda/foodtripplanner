@@ -14,11 +14,11 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
         response.setHeader("Pragma", "no-cache"); // HTTP 1.0.
         response.setDateHeader("Expires", 0); // Proxies.
 
-        if (request.getRequestURI().startsWith("/js") || request.getRequestURI().startsWith("/css") || request.getRequestURI().startsWith("/img")){
+//        if (request.getRequestURI().startsWith("/js") || request.getRequestURI().startsWith("/css") || request.getRequestURI().startsWith("/img")){
             return true;
-        } else {
-            return false;
-        }
+//        } else {
+//            return false;
+//        }
     }
 
     @Override
