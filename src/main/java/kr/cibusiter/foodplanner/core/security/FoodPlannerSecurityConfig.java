@@ -55,6 +55,7 @@ public class FoodPlannerSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/favicon.ico", "/static/**").permitAll()
                 .antMatchers("/errors/**").permitAll()
                 .antMatchers("/tl/**").permitAll()
+                .antMatchers("/pub/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
 //                .addFilterBefore(duplicationLoginCheckFilter(), UsernamePasswordAuthenticationFilter.class)
