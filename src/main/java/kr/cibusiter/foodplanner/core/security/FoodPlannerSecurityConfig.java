@@ -55,13 +55,13 @@ public class FoodPlannerSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/favicon.ico", "/static/**").permitAll()
                 .antMatchers("/errors/**").permitAll()
                 .antMatchers("/tl/**").permitAll()
-                .antMatchers("/pub/**").permitAll()
+                .antMatchers("/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
 //                .addFilterBefore(duplicationLoginCheckFilter(), UsernamePasswordAuthenticationFilter.class)
 //                .addFilterBefore(ajaxRequestLoginFilter(), ExceptionTranslationFilter.class)
                 .formLogin().loginPage("/login/page")
-                .loginProcessingUrl("/login/prcess").permitAll()
+                .loginProcessingUrl("/login/proc").permitAll()
                 .successHandler(loginSuccessHandler())
                 .failureHandler(loginFailureHandler())
                 .usernameParameter("Id")
@@ -113,7 +113,7 @@ public class FoodPlannerSecurityConfig extends WebSecurityConfigurerAdapter {
      */
     @Override
     public void configure(WebSecurity http) throws Exception {
-        http.ignoring().antMatchers("/static/**", "/favicon.ico");
+        http.ignoring().antMatchers("/static/**", "/static/favicon.ico");
     }
 
     @Autowired
