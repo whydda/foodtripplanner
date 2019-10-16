@@ -26,7 +26,7 @@ public enum UserColorCdEnum {
 		if(colorList.isEmpty()) {
 			for (UserColorCdEnum e : UserColorCdEnum.values()) {
 				CommonMap map = new CommonMap();
-				map.put("code_color", e.color); map.put("code_name", e.value); map.put("code_value", e.code);
+				map.put("codeColor", e.color); map.put("codeName", e.value); map.put("codeValue", e.code);
 				colorList.add(map);
 			}
 		}
