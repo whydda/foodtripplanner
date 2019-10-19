@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="header">
+<!-- Navigation -->
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="/">FoodPlanner★</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="services.html">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Portfolio
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
+                        <a class="dropdown-item" href="/pub/portfolio/1">1 Column Portfolio</a>
+                        <a class="dropdown-item" href="/pub/portfolio/2">2 Column Portfolio</a>
+                        <a class="dropdown-item" href="/pub/portfolio/3">3 Column Portfolio</a>
+                        <a class="dropdown-item" href="/pub/portfolio/4">4 Column Portfolio</a>
+                        <a class="dropdown-item" href="/pub/portfolio/item">Single Portfolio Item</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Blog
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
+                        <a class="dropdown-item" href="/pub/blog/home/1">Blog Home 1</a>
+                        <a class="dropdown-item" href="/pub/blog/home/2">Blog Home 2</a>
+                        <a class="dropdown-item" href="/pub/blog/post">Blog Post</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Other Pages
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
+                        <a class="dropdown-item" href="/pub/fullwidth">Full Width Page</a>
+                        <a class="dropdown-item" href="/pub/sidebar">Sidebar Page</a>
+                        <a class="dropdown-item" href="/pub/faq">FAQ</a>
+                        <a class="dropdown-item" href="/errors/error">404</a>
+                        <a class="dropdown-item" href="/pub/pricing">Pricing Table</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<header>
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            <!-- Slide One - Set the background image for this slide in the line below -->
+            <div class="carousel-item active" style="background-image: url('/static/images/food1.jpg')">
+                <div class="carousel-caption d-none d-md-block">
+                    <h3>조회수 1위</h3>
+                    <p>오늘의 조회수 1위 리뷰에 음식 사진입니다.</p>
+                </div>
+            </div>
+            <!-- Slide Two - Set the background image for this slide in the line below -->
+            <div class="carousel-item" style="background-image: url('/static/images/food2.jpg')">
+                <div class="carousel-caption d-none d-md-block">
+                    <h3>조회수 2위</h3>
+                    <p>오늘의 조회수 2위 리뷰에 음식 사진입니다.</p>
+                </div>
+            </div>
+            <!-- Slide Three - Set the background image for this slide in the line below -->
+            <div class="carousel-item" style="background-image: url('/static/images/food3.jpg')">
+                <div class="carousel-caption d-none d-md-block">
+                    <h3>조회수 3위</h3>
+                    <p>오늘의 조회수 3위 리뷰에 음식 사진입니다.</p>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</header>
+</div>
+</html>
