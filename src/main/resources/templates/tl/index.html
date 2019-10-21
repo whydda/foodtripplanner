@@ -8,25 +8,66 @@
   <meta name="author" content="">
 
   <title>FoodPlanner★</title>
-
   <!-- Bootstrap core CSS -->
   <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
   <!-- Custom styles for this template -->
   <link href="/static/css/modern-business.css" rel="stylesheet">
 
   <link rel="shortcut icon" href="/static/favicon.ico">
   <link rel="icon" href="/static/favicon.ico">
+
+  <script type="text/javascript" src="/static/js/common.js"></script>
+  <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+  <script type='text/javascript'>
+      //<![CDATA[
+      // 사용할 앱의 JavaScript 키를 설정해 주세요.
+      Kakao.init('819201adac22d583baad9aabfbbbc631');
+      // 카카오 로그인 버튼을 생성합니다.
+      Kakao.Auth.createLoginButton({
+          container: '#kakao-login-btn',
+          success: function(authObj) {
+              // 로그인 성공시, API를 호출합니다.
+              Kakao.API.request({
+                  url: '/v2/user/me',
+                  success: function(res) {
+                      $LOG.debug(JSON.stringify(res));
+                      var userinfo = {
+                          email : res.kakao_account.email
+                          ,certCd : '01'
+                          ,korNm : res.kakao_account.profile.nickname
+                          ,profileImage : res.kakao_account.profile.profile_image_url
+                          ,thumbnailImage : res.kakao_account.profile.thumbnail_image_url
+                          ,brithday : res.kakao_account.birthday
+                      };
+                      $Ajax.call('/signin', toGetParam(userinfo), function(){
+                          //카카오 버튼 삭제
+                          $('#kakao-login-btn').hide();
+                          //로그인 고객 명 표시
+                      }, 'POST', false);
+                      alert(JSON.stringify(res));
+                  },
+                  fail: function(error) {
+                      alert(JSON.stringify(error));
+                  }
+              });
+          },
+          fail: function(err) {
+              alert(JSON.stringify(err));
+          }
+      });
+      //]]>
+  </script>
 </head>
 
 <body>
 
-<footer th:replace="/tl/common/header :: header"></footer>
+<header th:replace="/tl/common/header :: header"></header>
 
-<footer th:replace="/tl/common/body :: body"></footer>
+<section th:replace="/tl/common/body :: body"></section>
 
 <footer th:replace="/tl/common/footer :: footer"></footer>
 
+<footer th:replace="/tl/layer-popup/login :: login"></footer>
 <!-- Bootstrap core JavaScript -->
 <script src="/static/vendor/jquery/jquery.min.js"></script>
 <script src="/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
