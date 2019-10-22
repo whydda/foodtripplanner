@@ -1,65 +1,47 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <title>FoodPlanner★</title>
-  <!-- Bootstrap core CSS -->
-  <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Custom styles for this template -->
-  <link href="/static/css/modern-business.css" rel="stylesheet">
-
-  <link rel="shortcut icon" href="/static/favicon.ico">
-  <link rel="icon" href="/static/favicon.ico">
-
-  <script type="text/javascript" src="/static/js/common.js"></script>
-  <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
-  <script type='text/javascript'>
-      //<![CDATA[
-      // 사용할 앱의 JavaScript 키를 설정해 주세요.
-      Kakao.init('819201adac22d583baad9aabfbbbc631');
-      // 카카오 로그인 버튼을 생성합니다.
-      Kakao.Auth.createLoginButton({
-          container: '#kakao-login-btn',
-          success: function(authObj) {
-              // 로그인 성공시, API를 호출합니다.
-              Kakao.API.request({
-                  url: '/v2/user/me',
-                  success: function(res) {
-                      $LOG.debug(JSON.stringify(res));
-                      var userinfo = {
-                          email : res.kakao_account.email
-                          ,certCd : '01'
-                          ,korNm : res.kakao_account.profile.nickname
-                          ,profileImage : res.kakao_account.profile.profile_image_url
-                          ,thumbnailImage : res.kakao_account.profile.thumbnail_image_url
-                          ,brithday : res.kakao_account.birthday
-                      };
-                      $Ajax.call('/signin', toGetParam(userinfo), function(){
-                          //카카오 버튼 삭제
-                          $('#kakao-login-btn').hide();
-                          //로그인 고객 명 표시
-                      }, 'POST', false);
-                      alert(JSON.stringify(res));
-                  },
-                  fail: function(error) {
-                      alert(JSON.stringify(error));
-                  }
-              });
-          },
-          fail: function(err) {
-              alert(JSON.stringify(err));
-          }
-      });
-      //]]>
-  </script>
-</head>
-
 <body>
+<header>
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+      <!-- Slide One - Set the background image for this slide in the line below -->
+      <div class="carousel-item active" style="background-image: url('/static/images/food1.jpg')">
+        <div class="carousel-caption d-none d-md-block">
+          <h3>조회수 1위</h3>
+          <p>오늘의 조회수 1위 리뷰에 음식 사진입니다.</p>
+        </div>
+      </div>
+      <!-- Slide Two - Set the background image for this slide in the line below -->
+      <div class="carousel-item" style="background-image: url('/static/images/food2.jpg')">
+        <div class="carousel-caption d-none d-md-block">
+          <h3>조회수 2위</h3>
+          <p>오늘의 조회수 2위 리뷰에 음식 사진입니다.</p>
+        </div>
+      </div>
+      <!-- Slide Three - Set the background image for this slide in the line below -->
+      <div class="carousel-item" style="background-image: url('/static/images/food3.jpg')">
+        <div class="carousel-caption d-none d-md-block">
+          <h3>조회수 3위</h3>
+          <p>오늘의 조회수 3위 리뷰에 음식 사진입니다.</p>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</header>
 
 <header th:replace="/tl/common/header :: header"></header>
 

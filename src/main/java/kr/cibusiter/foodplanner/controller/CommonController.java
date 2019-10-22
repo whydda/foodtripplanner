@@ -12,6 +12,21 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class CommonController {
 
+    @GetMapping(value = "/pub/about")
+    public String about(){
+        return "/tl/about";
+    }
+
+    @GetMapping(value = "/pub/service")
+    public String service(){
+        return "/tl/services";
+    }
+
+    @GetMapping(value = "/pub/contact")
+    public String contact(){
+        return "/tl/contact";
+    }
+
     @GetMapping(value = "/")
     public String loginPage(){
         return "/tl/index";
