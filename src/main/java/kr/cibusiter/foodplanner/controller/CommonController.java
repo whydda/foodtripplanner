@@ -27,7 +27,7 @@ public class CommonController {
         return "/tl/contact";
     }
 
-    @GetMapping(value = "/")
+    @GetMapping(value =  {"", "/"} )
     public String loginPage(){
         return "/tl/index";
     }
