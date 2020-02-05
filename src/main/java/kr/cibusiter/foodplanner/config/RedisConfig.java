@@ -29,8 +29,8 @@ public class RedisConfig {
     @Value("${spring.redis.port}")
     private String redisPort;
 
-    @Value("${spring.session.timeout}")
-    private int sessionTimeOut;
+//    @Value("${spring.session.timeout}")
+//    private int sessionTimeOut;
 
     /**
      * Type safe representation of application.properties
