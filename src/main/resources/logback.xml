@@ -37,7 +37,7 @@
             <appender-ref ref="console"/>
             <appender-ref ref="file"/>
         </root>
-        <logger name="kr.co.sunny.ykapi" level="debug"/>
+        <logger name="kr.cibusiter.foodplanner" level="debug"/>
         <logger name="org.springframework" level="info" />
     </springProfile>
     <springProfile name="stg">
@@ -45,7 +45,7 @@
             <appender-ref ref="console"/>
             <appender-ref ref="file"/>
         </root>
-        <logger name="kr.co.sunny.ykapi" level="debug"/>
+        <logger name="kr.cibusiter.foodplanner" level="debug"/>
         <logger name="org.springframework" level="info" />
     </springProfile>
     <springProfile name="prod">
