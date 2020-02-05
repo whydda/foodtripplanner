@@ -34,7 +34,7 @@ public class WebConfig implements WebMvcConfigurer {
 
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/").setCachePeriod(31556926);
-        registry.addResourceHandler("/templates/**").addResourceLocations("classpath:/templates/").setCachePeriod(31556926);
+        registry.addResourceHandler("/**").addResourceLocations("classpath:/templates/").setCachePeriod(31556926);
     }
 
 
